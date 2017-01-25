@@ -23,10 +23,10 @@ body = """<html>
 </body>
 </html>""".format(
     software=os.environ.get('SERVER_SOFTWARE', default),
-    script='aaaa',
-    month='bbbb',
-    date='cccc',
-    year='dddd',
-    client_ip='eeee'
+    script=os.environ.get('SCRIPT_NAME', default),
+    month=datetime.date.today().month,
+    date=datetime.date.today().day,
+    year=datetime.date.today().year,
+    client_ip=os.environ.get('REMOTE_ADDR',default)
 )
 print(body)
