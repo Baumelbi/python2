@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 import cgi
 import cgitb
+
 cgitb.enable()
 import os
 import datetime
 
-
 default = "No Value Present"
-
-
+now = datetime.datetime.now()
 print("Content-Type: text/html")
 print()
 
@@ -24,9 +23,9 @@ body = """<html>
 </html>""".format(
     software=os.environ.get('SERVER_SOFTWARE', default),
     script=os.environ.get('SCRIPT_NAME', default),
-    month=datetime.date.today().month,
-    date=datetime.date.today().day,
-    year=datetime.date.today().year,
-    client_ip=os.environ.get('REMOTE_ADDR',default)
+    month=now.strftime('%B'),
+    date=now.day,
+    year=now.year,
+    client_ip=os.environ.get('REMOTE_ADDR', default)
 )
 print(body)
