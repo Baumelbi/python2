@@ -46,7 +46,7 @@ def parse_source(html):
 
 def load_inspection_page(name):
     file_path = pathlib.Path(name)
-    return file_path.read_text(encoding='utf8')
+    return file_path.read_text(encoding='utf8', errors='ignore')
 
 
 def restaurant_data_generator(html):
